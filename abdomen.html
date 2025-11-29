@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales en peligro</title>
+  <link rel="stylesheet" href="abdomen.css">
+</head>
+<body>
+
+<div class="slider" id="slider">
+  <section class="slide" style="background-image: url('abdomen.jpg')">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Plancha Abdominal</h1>
+      <p>Posicion: <strong>Apoya antebrazos y puntas de pies, cuerpo en línea recta.</strong></p>
+      
+      <p>Ejecucion:<strong>Aguanta 30-60 segundos.</strong></p>
+      <p>Evita balancear el cuerpo o elevar más allá de los hombros.</p>
+      </div>
+      <div class="content right">
+        <img src="planncha.jpg" >
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Crunch con Piernas Elevadas:</h1>
+      <p>Posicion: <strong> Acostado, piernas en 90°, manos detrás de la cabeza</strong></p>
+      <p>Ejecucion: <strong>Eleva el torso sin forzar el cuello.</strong></p>
+      <p>Evita balancear el cuerpo o elevar más allá de los hombros.</p>
+    </div>
+    <div class="content right">
+        <img src="crunch.avif" class="chica">
+    </div>
+  </section>
+</div>
+<!-- Dots -->
+<div class="nav-dots" id="dots">
+  <span class="active"></span>
+  <span></span>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const dots = document.querySelectorAll('#dots span');
+  let current = 0;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    current = index;
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => goToSlide(idx));
+  });
+
+  // Swipe para móviles
+  let startX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta > 50 && current > 0) goToSlide(current - 1);
+    else if (delta < -50 && current < 2) goToSlide(current + 1);
+  });
+</script>
+
+</body>
+</html>

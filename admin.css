@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background: url('fa.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000;
+}
+
+/* CONTENEDOR */
+.usuario {
+    width: 85%;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* FOTO */
+.usuario img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* NOMBRE */
+.usuario strong {
+    font-size: 22px;
+}
+
+.usuario p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* BOTONES */
+button {
+    padding: 10px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* BORRAR */
+button[name="borrar"] {
+    background: #ff3b3b;
+    color: white;
+}
+
+/* CREAR RUTINA */
+button[name="crear_rutina"] {
+    background: #4CAF50;
+    color: white;
+}
+
+/* AÑADIR */
+button[name="add_categoria"],
+button[name="add_ejercicio"] {
+    background: #1976D2;
+    color: white;
+}
+
+/* VER RUTINA */
+button[name="ver_rutina"] {
+    background: #6a00ff;
+    color: white;
+}
+
+/* INPUTS Y SELECTS */
+form input,
+form select {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    margin: 5px;
+    width: 200px;
+    background: #fff;
+    color: #000;
+}
+
+/* SELECTS FUNCIONALES */
+select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+    background-color: white;
+    cursor: pointer;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    margin-top: 30px;
+}
