@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales en peligro</title>
+  <link rel="stylesheet" href="pierna.css">
+</head>
+<body>
+
+<div class="slider" id="slider">
+  <section class="slide" style="background-image: url('pierna.jpg')">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Sentadillas </h1>
+      <p>Posicion: <strong>Parado</strong></p>
+      
+      <p>Ejecucion:<strong>Manteniendo la espalda recta doblas las rodillas <br>  despues sube lentamente hasta que regreses a la posicion inicial.</strong></p>
+      <p>Evita doblar la espalda al realizar el movimento</p>
+      </div>
+      <div class="content right">
+        <img src="sentadilla.jfif">
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Sentadilla bulgara</h1>
+      <p>Posicion: <strong>Un pie apoyado en un banco detrás de ti, el otro adelante (rodilla a 90° al bajar).</strong></p>
+      <p>Ejecucion: <strong>Baja el torso manteniendo el tronco recto, hasta que el muslo quede paralelo al suelo.<br>El peso debe estar en el talón del pie adelantado.</strong></p>
+      <p>Evita que la rodilla delantera sobrepase la punta del pie.</p>
+    </div>
+    <div class="content right">
+        <img src="sentadilla.jfif">
+    </div>
+  </section>
+</div>
+
+<!-- Dots -->
+<div class="nav-dots" id="dots">
+  <span class="active"></span>
+  <span></span>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const dots = document.querySelectorAll('#dots span');
+  let current = 0;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    current = index;
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => goToSlide(idx));
+  });
+
+  // Swipe para móviles
+  let startX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta > 50 && current > 0) goToSlide(current - 1);
+    else if (delta < -50 && current < 2) goToSlide(current + 1);
+  });
+</script>
+
+</body>
+</html>
