@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales en peligro</title>
+  <link rel="stylesheet" href="pecho.css">
+</head>
+<body>
+
+<div class="slider" id="slider">
+  <section class="slide" style="background-image: url('pecho.jfif')">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Press de Pecho (Mancuernas o Barra) </h1>
+      <p>Posicion: <strong>Acostado en banco plano, pies apoyados. Mancuernas a la altura del pecho.</strong></p>
+      
+      <p>Ejecucion:<strong>Empuja las mancuernas hacia arriba hasta extender codos (sin bloquear).<br>  despues baja lentamente hasta que los codos queden ligeramente por debajo del hombro.</strong></p>
+      <p>Evita dejar caer el peso rápidamente </p>
+      </div>
+      <div class="content right">
+        <video autoplay muted loop playsinline class="video-bg">
+          <source src="PRESS PLANO CON BARRA.mp4" type="video/mp4">
+        </video>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Apertura de Pecho (Mancuerna)</h1>
+      <p>Posicion: <strong>Acostado en banco plano, brazos extendidos arriba del pecho (ligera flexión de codos)</strong></p>
+      <p>Ejecucion: <strong>Abre los brazos en arco hasta
+Baja controladamente sin extender totalmente el codo.</strong></p>
+      <p>Evita balancear el cuerpo o mover los codos.</p>
+    </div>
+    <div class="content right">
+        <video autoplay muted loop playsinline class="video-bg">
+          <source src="APERTURAS MANCUERNAS BANCO PLANO.mp4" type="video/mp4">
+        </video>
+    </div>
+  </section>
+</div>
+
+<!-- Dots -->
+<div class="nav-dots" id="dots">
+  <span class="active"></span>
+  <span></span>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const dots = document.querySelectorAll('#dots span');
+  let current = 0;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    current = index;
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => goToSlide(idx));
+  });
+
+  // Swipe para móviles
+  let startX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta > 50 && current > 0) goToSlide(current - 1);
+    else if (delta < -50 && current < 2) goToSlide(current + 1);
+  });
+</script>
+
+</body>
+</html>

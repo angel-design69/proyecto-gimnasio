@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reproductor de Música</title>
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Estilos -->
+  <link rel="stylesheet" href="musica.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <!-- Reproductor Electrónica (Fijo) -->
+  <div class="music-player-electronica">
+    <img id="cover-electronica" src="blah.jpg" alt="Cover" />
+    <h3>Musica electronica</h3>
+    <h1 id="songName-electronica">Blah Blah Blah</h1>
+    <p id="artistName-electronica">Armin van Buuren</p>
+    <audio id="song-electronica"></audio>
+    <input type="range" value="0" id="progress-electronica" />
+    <div class="controls">
+      <button class="regresar-electronica"><i class="fa-solid fa-backward"></i></button>
+      <button class="play-pause-electronica"><i class="fa-solid fa-play" id="control-electronica"></i></button>
+      <button class="siguiente-electronica"><i class="fa-solid fa-forward"></i></button>
+    </div>
+  </div>
+
+  <!-- Reproductor Reguetón (Aparece al hacer scroll) -->
+  <div class="music-player-reguetonmexa" data-aos="fade-up" data-aos-duration="800">
+    <img id="cover-reguetonmexa" src="blah.jpg" alt="Cover" />
+    <h3>Reggaeton Mexa</h3>
+    <h1 id="songName-reguetonmexa">Somos Ñeros</h1>
+    <p id="artistName-reguetonmexa">El Bogueto</p>
+    <audio id="song-reguetonmexa"></audio>
+    <input type="range" value="0" id="progress-reguetonmexa" />
+    <div class="controls">
+      <button class="regresar-reguetonmexa"><i class="fa-solid fa-backward"></i></button>
+      <button class="play-pause-reguetonmexa"><i class="fa-solid fa-play" id="control-reguetonmexa"></i></button>
+      <button class="siguiente-reguetonmexa"><i class="fa-solid fa-forward"></i></button>
+    </div>
+  </div>
+  <div class="music-player-adoloridos" data-aos="fade-up" data-aos-duration="800">
+    <img id="cover-adoloridos" src="blah.jpg" alt="Cover" />
+    <h3>Adoloridos</h3>
+    <h1 id="songName-adoloridos">Ya es Muy tarde</h1>
+    <p id="artistName-adoloridos">La Arrolladora</p>
+    <audio id="song-adoloridos"></audio>
+    <input type="range" value="0" id="progress-adoloridos" />
+    <div class="controls">
+      <button class="regresar-adoloridos"><i class="fa-solid fa-backward"></i></button>
+      <button class="play-pause-adoloridos"><i class="fa-solid fa-play" id="control-adoloridos"></i></button>
+      <button class="siguiente-adoloridos"><i class="fa-solid fa-forward"></i></button>
+    </div>
+  </div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="musica.js" defer></script>
+    <script>
+      // Inicializar AOS.js
+      AOS.init();
+    </script>
+    </body>
+    </html>
+  
+</body>
+</html>

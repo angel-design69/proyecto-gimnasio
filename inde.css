@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('fondo.png');
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    
+    /* Bordes delgados bicolores */
+    border: 5px solid white;
+    outline: 3.5px solid red;
+    outline-offset: -6px; /* Superpone los bordes */
+}
+
+.titulosdeinicio {
+    text-align: center; /* Centra el texto (h1 y h3) */
+    max-width: 800px; /* Evita que los títulos sean muy anchos */
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+    font-size: 60px;
+    font-family: Candara;
+    margin: 20px 0 10px 0; /* Arriba | Derecha | Abajo | Izquierda */
+}
+
+h3 {
+    color: #00ffcc;
+    font-size: 30px;
+    font-family: Calibri;
+    margin: 10px 0 30px 0; /* Más margen inferior para separar del botón */
+}
+
+/* From Uiverse.io by MRHARTS */ 
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 120px;
+  height: 22px;
+  border-radius: 40px;
+  color: #10ffa4;
+  border: 2px solid;
+  position: relative;
+  overflow: hidden;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 14px;
+  top: 0;
+  bottom: 0;
+  left: -20px;
+  border-radius: inherit;
+  background: currentColor;
+  box-shadow: -10px 0 12px 3px currentColor;
+  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);
+  animation: l14 1s infinite linear;
+}
+@keyframes l14 {
+  100% {
+    left: calc(100% + 20px);
+  }
+}

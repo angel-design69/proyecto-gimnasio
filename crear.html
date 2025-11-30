@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('crear.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;         /* Cubre toda la pantalla */
+  background-position: center;    /* Centra la imagen */
+  background-attachment: fixed;   /* Hace que quede fija al hacer scroll */
+  margin: 0;
+  height: 100vh;
+
+  display: flex;                  /* Activa Flexbox */
+  justify-content: center;        /* Centra horizontalmente */
+  align-items: center;            /* Centra verticalmente */
+        }
+        /* From Uiverse.io by Yaya12085 */ 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.title {
+  font-size: 28px;
+  color: rgb(59, 59, 59);
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: rgb(59, 59, 59);
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: rgb(59, 59, 59);
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message, .signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: rgb(155, 97, 43);
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: rgb(59, 59, 59);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(0, 0, 0);
+}
+/* === Estilo para el campo de imagen === */
+.file-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dashed rgba(105, 105, 105, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  text-align: center;
+}
+
+.file-label:hover {
+  border-color: rgb(59, 59, 59);
+  background-color: rgba(59, 59, 59, 0.05);
+}
+
+.file-input {
+  display: none; /* oculta el input nativo */
+}
+
+.file-label span {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 0.9em;
+  margin-top: 8px;
+}
+
+/* Opcional: vista previa de imagen */
+.preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid rgba(59, 59, 59, 0.3);
+}
+
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+    </style>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form class="form" enctype="multipart/form-data"   action="crear.php" method="post">
+    <p class="title">Register</p>
+    <p class="message"></p>
+    
+    <div class="flex">
+      <label>
+        <input required type="text" class="input" name="nombre" placeholder="Nombre">
+      </label>
+      <label>
+        <input required type="text" class="input" name="apellido" placeholder="Apellido">
+      </label>
+    </div>  
+
+    <label>
+      <input required type="email" class="input" name="mail" placeholder="Correo">
+    </label>
+    <label>
+      <input required type="telefono" class="input" name="telefono" placeholder="Telefono">
+    </label> 
+        
+    <label>
+      <input required type="password" class="input" name="contra" placeholder="Contraseña">
+    </label>
+
+    <label>
+      <input required type="password" class="input" name="contracon" placeholder="Confirmar contraseña">
+    </label>
+
+    <label class="file-upload">
+  <input 
+    required 
+    type="file" 
+    accept="image/*" 
+    id="profileImage" 
+    class="file-input"
+    name="foto" accept="image/*"
+  >
+  <span class="file-label">📷 Subir foto de perfil</span>
+</label>
+
+    <img id="preview" src="" alt="Preview" style="max-width: 150px; display: none; border-radius: 10px; margin-top: 10px;">
+
+    <button class="submit">Crear</button>
+    <p class="signin">¿Ya tienes Cuenta? <a href="secion.html">Iniciar sesion</a></p>
+  </form>
+
+  <script>
+    const input = document.getElementById('profileImage');
+    const preview = document.getElementById('preview');
+
+    input.addEventListener('change', () => {
+      const file = input.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales en peligro</title>
+  <link rel="stylesheet" href="espalda.css">
+</head>
+<body>
+
+<div class="slider" id="slider">
+  <section class="slide" style="background-image: url('hombro.jpeg')">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Remo con Mancuerna </h1>
+      <p>Posicion: <strong>Apoya rodilla y mano en un banco, espalda paralela al suelo</strong></p>
+      
+      <p>Ejecucion:<strong>Tira la mancuerna hacia la cadera, llevando el codo atrás y apretando la escápula.
+
+<br> despues baja lentamente sin dejar caer el hombro.</strong></p>
+      <p>Evita balancear el cuerpo o elevar más allá de los hombros.</p>
+      </div>
+      <div class="content right">
+        <img src="remo.jfif" class="chica">
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Estiramiento en Polea (Face Pull)</h1>
+      <p>Posicion: <strong> Ajusta la polea a altura de la cara. Agarra la cuerda con agarre prono (palmas hacia abajo)</strong></p>
+      <p>Ejecucion: <strong>Tira de la cuerda hacia tu rostro, separando las manos hacia los lados (como un "W").<br>Enfócate en juntar las escápulas y contraer los deltoides posteriores.<br>Regresa controladamente.</strong></p>
+      <p>Evita balancear el cuerpo.</p>
+    </div>
+    <div class="content right">
+        <img src="face.jpg">
+    </div>
+  </section>
+</div>
+<!-- Dots -->
+<div class="nav-dots" id="dots">
+  <span class="active"></span>
+  <span></span>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const dots = document.querySelectorAll('#dots span');
+  let current = 0;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    current = index;
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => goToSlide(idx));
+  });
+
+  // Swipe para móviles
+  let startX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta > 50 && current > 0) goToSlide(current - 1);
+    else if (delta < -50 && current < 2) goToSlide(current + 1);
+  });
+</script>
+
+</body>
+</html>

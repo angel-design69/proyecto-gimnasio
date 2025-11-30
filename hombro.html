@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animales en peligro</title>
+  <link rel="stylesheet" href="hombro.css">
+</head>
+<body>
+<div class="slider" id="slider">
+  <section class="slide" style="background-image: url('hombro.jpeg')">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Elevaciones Laterales</h1>
+      <p>Posicion: <strong> De pie, mancuernas a los lados del cuerpo.</strong></p>
+      
+      <p>Ejecucion:<strong>Eleva las mancuernas hasta la altura de los hombros (formando una "T").
+
+<br> despues baja lentamente sin dejar caer el peso.</strong></p>
+      <p>Evita balancear el cuerpo o elevar más allá de los hombros.</p>
+      </div>
+      <div class="content right">
+        <img src="laterales.jpg" class="chica">
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Elevaciones Frontales</h1>
+      <p>Posicion: <strong> De pie, mancuernas a los lados del cuerpo.</strong></p>
+      <p>Ejecucion: <strong>Eleva las mancuernas hasta la altura de los hombros con los brasos rectos hacia enfrente<br>despues baja lentamente sin dejar caer el peso.</strong></p>
+      <p>Evita balancear el cuerpo o elevar más allá de los hombros.</p>
+    </div>
+    <div class="content right">
+        <img src="frontales.jfif">
+    </div>
+  </section>
+</div>
+<!-- Dots -->
+<div class="nav-dots" id="dots">
+  <span class="active"></span>
+  <span></span>
+</div>
+
+<script>
+  const slider = document.getElementById('slider');
+  const dots = document.querySelectorAll('#dots span');
+  let current = 0;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${index * 100}vw)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    current = index;
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => goToSlide(idx));
+  });
+
+  // Swipe para móviles
+  let startX = 0;
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const delta = endX - startX;
+
+    if (delta > 50 && current > 0) goToSlide(current - 1);
+    else if (delta < -50 && current < 2) goToSlide(current + 1);
+  });
+</script>
+
+</body>
+</html>
